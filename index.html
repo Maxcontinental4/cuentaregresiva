@@ -31,7 +31,6 @@
       0% { filter: hue-rotate(0deg); }
       100% { filter: hue-rotate(360deg); }
     }
-    /* simple confetti */
     .confetti {
       position: fixed;
       top: -10px;
@@ -44,15 +43,40 @@
     @keyframes fall {
       to { transform: translateY(100vh) rotate(360deg); opacity: 1; }
     }
-    .hide { display: none; }
+    #slideshow {
+      width: 90%;
+      max-width: 700px;
+      height: auto;
+      margin-top: 20px;
+      overflow: hidden;
+      position: relative;
+    }
+    #slideshow img {
+      width: 100%;
+      border-radius: 12px;
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: opacity 1.5s ease-in-out;
+    }
+    #slideshow img.active {
+      opacity: 1;
+      position: relative;
+    }
   </style>
 </head>
 <body>
   <h1>Cuenta regresiva para que Gimenez abandone la Casa de Gran Marcelo</h1>
   <div id="countdown">Cargando…</div>
+  <div id="slideshow">
+    <img src="WhatsApp%20Image%202025-08-27%20at%2010.01.46%20(1).jpeg" class="active">
+    <img src="WhatsApp%20Image%202025-08-27%20at%2010.01.46%20(2).jpeg">
+    <img src="WhatsApp%20Image%202025-08-27%20at%2010.01.46.jpeg">
+    <img src="banana%20en%20pijama.jpeg">
+  </div>
 
   <script>
-    // Ajustado a horario de Buenos Aires (-03:00). Modificá el offset si lo necesitás.
     const eventDate = new Date("2025-08-29T17:00:00-03:00").getTime();
     const el = document.getElementById("countdown");
     let timer;
@@ -79,7 +103,6 @@
 
     function startCelebration(){
       document.body.classList.add("celebration");
-      // Crear confeti simple sin librerías
       const colors = ["#ff4d4d","#ffd166","#06d6a0","#118ab2","#ef476f","#8338ec","#fb5607","#3a86ff"];
       for (let i = 0; i < 120; i++) {
         const c = document.createElement("div");
@@ -91,13 +114,21 @@
         c.style.opacity = 0.7 + Math.random() * 0.3;
         c.style.transform = `rotate(${(Math.random()*60-30)}deg)`;
         document.body.appendChild(c);
-        // Remover después de caer
         setTimeout(() => c.remove(), 6000);
       }
     }
 
     update();
     timer = setInterval(update, 1000);
+
+    // Slideshow
+    const slides = document.querySelectorAll('#slideshow img');
+    let index = 0;
+    setInterval(() => {
+      slides[index].classList.remove('active');
+      index = (index + 1) % slides.length;
+      slides[index].classList.add('active');
+    }, 3000);
   </script>
 </body>
 </html>
