@@ -137,6 +137,25 @@
       index = (index + 1) % slides.length;
       slides[index].classList.add('active');
     }, 3000);
+
+// Control de música
+const music = document.getElementById('bg-music');
+const musicBtn = document.getElementById('music-btn');
+let isPlaying = false;
+
+function toggleMusic() {
+  if (!isPlaying) {
+    music.play();
+    isPlaying = true;
+    musicBtn.textContent = "⏸️ Pausar música";
+  } else {
+    music.pause();
+    isPlaying = false;
+    musicBtn.textContent = "🎶 Musicalizá la despedida";
+  }
+}
+
+
   </script>
 </body>
 </html>
