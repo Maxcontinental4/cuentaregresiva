@@ -69,12 +69,14 @@ h1 {
   width: 100%;
   overflow: hidden;
   margin-top: 30px;
+  position: relative;
 }
 
 .marquee {
   display: flex;
   gap: 20px;
-  animation: slide 20s linear infinite;
+  animation: slide 25s linear infinite;
+  white-space: nowrap;
 }
 
 .saludo-card {
@@ -86,7 +88,9 @@ h1 {
   box-shadow: 0px 4px 12px rgba(0,0,0,0.4);
   min-width: 200px;
   color: #fff;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  border: 2px solid #06d6a0; /* borde tipo tarjeta */
+  flex-shrink: 0;
+  text-align: center;
 }
 
 .saludo-card:hover {
@@ -131,7 +135,3 @@ h1 {
   width: 150px;
   cursor: pointer;
 }
-
-
-
-
