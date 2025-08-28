@@ -3,146 +3,71 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css">
   <title>Cuenta Regresiva - Gimenez</title>
-  <style>
-    :root { --bg1: #4facfe; --bg2: #00f2fe; }
-    * { box-sizing: border-box; }
-    html, body { height: 100%; margin: 0; }
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      display: grid;
-      place-items: center;
-      gap: 16px;
-      text-align: center;
-      color: #fff;
-      background: linear-gradient(120deg, var(--bg1), var(--bg2));
-      transition: background 0.8s ease;
-    }
-    h1 { margin: 0 16px; font-size: clamp(24px, 5vw, 40px); }
-    #countdown {
-      font-weight: 700;
-      font-size: clamp(22px, 6vw, 48px);
-      letter-spacing: 1px;
-    }
-    .celebration {
-      animation: hue 1s linear infinite;
-    }
-    @keyframes hue {
-      0% { filter: hue-rotate(0deg); }
-      100% { filter: hue-rotate(360deg); }
-    }
-    .confetti {
-      position: fixed;
-      top: -10px;
-      width: 8px;
-      height: 14px;
-      opacity: 0.9;
-      transform: rotate(15deg);
-      animation: fall linear forwards;
-    }
-    @keyframes fall {
-      to { transform: translateY(100vh) rotate(360deg); opacity: 1; }
-    }
-    #slideshow {
-      width: 90%;
-      max-width: 700px;
-      height: auto;
-      margin-top: 20px;
-      overflow: hidden;
-      position: relative;
-    }
-    #slideshow img {
-      width: 100%;
-      border-radius: 12px;
-      opacity: 0;
-      position: absolute;
-      top: 0;
-      left: 0;
-      transition: opacity 1.5s ease-in-out;
-    }
-    #slideshow img.active {
-      opacity: 1;
-      position: relative;
-    }
-  </style>
+  
+  <!-- Tipografía moderna -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Conexión al CSS externo -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<!-- Controles de música -->
-<div id="music-controls">
-  <button id="music-btn" onclick="toggleMusic()">🎶 Musicalizá la despedida!</button>
-  <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="0.5">
-</div>
-
-<!-- Audio oculto -->
-<audio id="bg-music" src="fin.mp3" loop></audio>
-
   <h1>Cuenta regresiva para que Gimenez abandone la Casa de Gran Marcelo</h1>
   <div id="countdown">Cargando…</div>
+
+  <!-- Slideshow debajo del título -->
   <div id="slideshow">
-    <img src="WhatsApp%20Image%202025-08-27%20at%2010.01.46%20(1).jpeg" class="active">
-    <img src="WhatsApp%20Image%202025-08-27%20at%2010.01.46%20(2).jpeg">
-    <img src="WhatsApp%20Image%202025-08-27%20at%2010.01.46.jpeg">
-
-    
-    <img src="Marisol (1).jpeg">
-    <img src="Marisol (2).jpeg">
-    <img src="Marisol (3).jpeg">
-    <img src="Marisol (4).jpeg">  
-    <img src="Marisol (5).jpeg">
-    <img src="Marisol (7).46.jpeg">
-
-    
-    <img src="banana%20en%20pijama.jpeg">
+    <img src="foto1.jpeg" class="active">
+    <img src="foto2.jpeg">
+    <img src="foto3.jpeg">
+    <img src="banana.jpeg">
   </div>
 
+  <!-- Tarjetas con saludos -->
+  <section id="saludos">
+    <div class="marquee">
+      <div class="saludo-card">👋 ¡Chau Adrián!</div>
+      <div class="saludo-card">🙌 ¡Nos vemos!</div>
+      <div class="saludo-card">😂 ¡Nos vemooooos!</div>
+      <div class="saludo-card">🤝 ¡Cuidate loco!</div>
+      <div class="saludo-card">🙏 ¡Muchas gracias!</div>
+    </div>
+  </section>
+
+  <!-- Controles de música -->
+  <div id="music-controls">
+    <button id="music-btn" onclick="toggleMusic()">🎶 Musicalizá la despedida</button>
+    <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="0.5">
+  </div>
+
+  <!-- Audio oculto -->
+  <audio id="bg-music" src="musica.mp3" loop></audio>
+
+  <!-- Scripts -->
   <script>
+    // ---------- Cuenta regresiva ----------
     const eventDate = new Date("2025-08-29T17:00:00-03:00").getTime();
     const el = document.getElementById("countdown");
     let timer;
-
     function pad(n){ return String(n).padStart(2,'0'); }
-
     function update() {
       const now = Date.now();
       const diff = eventDate - now;
-
       if (diff <= 0) {
         clearInterval(timer);
         el.textContent = "¡Gimenez ya abandonó la Casa de Gran Marcelo!";
-        startCelebration();
         return;
       }
-
       const d = Math.floor(diff / 86400000);
       const h = Math.floor((diff % 86400000) / 3600000);
       const m = Math.floor((diff % 3600000) / 60000);
       const s = Math.floor((diff % 60000) / 1000);
       el.textContent = `${d}d ${pad(h)}h ${pad(m)}m ${pad(s)}s`;
     }
-
-    function startCelebration(){
-      document.body.classList.add("celebration");
-      const colors = ["#ff4d4d","#ffd166","#06d6a0","#118ab2","#ef476f","#8338ec","#fb5607","#3a86ff"];
-      for (let i = 0; i < 120; i++) {
-        const c = document.createElement("div");
-        c.className = "confetti";
-        c.style.left = Math.random() * 100 + "vw";
-        c.style.background = colors[Math.floor(Math.random()*colors.length)];
-        c.style.animationDuration = 2 + Math.random() * 3 + "s";
-        c.style.animationDelay = Math.random() * 0.8 + "s";
-        c.style.opacity = 0.7 + Math.random() * 0.3;
-        c.style.transform = `rotate(${(Math.random()*60-30)}deg)`;
-        document.body.appendChild(c);
-        setTimeout(() => c.remove(), 6000);
-      }
-    }
-
     update();
     timer = setInterval(update, 1000);
 
-    // Slideshow
+    // ---------- Slideshow ----------
     const slides = document.querySelectorAll('#slideshow img');
     let index = 0;
     setInterval(() => {
@@ -151,24 +76,25 @@
       slides[index].classList.add('active');
     }, 3000);
 
-// Control de música
-const music = document.getElementById('bg-music');
-const musicBtn = document.getElementById('music-btn');
-let isPlaying = false;
-
-function toggleMusic() {
-  if (!isPlaying) {
-    music.play();
-    isPlaying = true;
-    musicBtn.textContent = "⏸️ Pausar música";
-  } else {
-    music.pause();
-    isPlaying = false;
-    musicBtn.textContent = "🎶 Musicalizá la despedida";
-  }
-}
-
-
+    // ---------- Música ----------
+    const music = document.getElementById('bg-music');
+    const musicBtn = document.getElementById('music-btn');
+    const volumeSlider = document.getElementById('volume-slider');
+    let isPlaying = false;
+    function toggleMusic() {
+      if (!isPlaying) {
+        music.play();
+        isPlaying = true;
+        musicBtn.textContent = "⏸️ Pausar música";
+      } else {
+        music.pause();
+        isPlaying = false;
+        musicBtn.textContent = "🎶 Musicalizá la despedida";
+      }
+    }
+    volumeSlider.addEventListener('input', function() {
+      music.volume = this.value;
+    });
   </script>
 </body>
 </html>
