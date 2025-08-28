@@ -75,7 +75,7 @@ h1 {
 .marquee {
   display: flex;
   gap: 20px;
-  animation: slide 40s linear infinite;
+  animation: slide 80s linear infinite;
   white-space: nowrap;
 }
 
@@ -135,4 +135,5 @@ h1 {
   width: 150px;
   cursor: pointer;
 }
+
 
