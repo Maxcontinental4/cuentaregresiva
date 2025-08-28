@@ -104,3 +104,10 @@ h1 {
   transform: scale(1.05);
 }
 
+// Control de volumen
+const volumeSlider = document.getElementById('volume-slider');
+volumeSlider.addEventListener('input', function() {
+  music.volume = this.value;
+});
+
+
