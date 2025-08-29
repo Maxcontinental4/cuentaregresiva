@@ -92,24 +92,23 @@ h1 {
   font-size: 18px;
   font-weight: bold;
   box-shadow: 0px 4px 12px rgba(0,0,0,0.4);
-  
+
   width: 220px;            /* ancho fijo */
-  max-width: 220px;
-  min-height: 80px;        /* asegura altura mínima uniforme */
-  max-height: 120px;       /* asegura que no crezca demasiado */
+  max-width: 220px;        
+  min-height: 100px;       /* altura mínima más grande */
+  max-height: 140px;       /* altura máxima */
   
-  white-space: normal;     /* permite salto de línea */
-  word-wrap: break-word;   /* corta palabras largas */
-  overflow-wrap: break-word; /* extra seguridad */
-  
-  line-height: 1.4;
+  white-space: normal;     
+  word-wrap: break-word;   
+  overflow-wrap: break-word;  
   text-align: center;
+  line-height: 1.4;
   color: #fff;
   border: 3px solid #06d6a0;
   flex-shrink: 0;
-  display: flex;           /* 👈 centramos vertical/horizontal */
-  align-items: center;
-  justify-content: center;
+
+  display: block;          /* 👈 antes era flex, ahora dejamos que fluya normal */
+  overflow: hidden;        /* oculta si aún queda algún exceso */
 }
 
 .saludo-card:hover {
@@ -153,6 +152,7 @@ h1 {
   width: 150px;
   cursor: pointer;
 }
+
 
 
 
