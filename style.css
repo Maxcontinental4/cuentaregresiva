@@ -81,7 +81,7 @@ h1 {
   display: flex;
   align-items: center;          /* centra verticalmente las tarjetas */
   gap: 20px;
-  animation: slide 60s linear infinite;
+  animation: slide 120s linear infinite;
   padding: 10px 0;
 }
 
@@ -153,6 +153,7 @@ h1 {
   width: 150px;
   cursor: pointer;
 }
+
 
 
 
