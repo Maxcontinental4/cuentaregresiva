@@ -67,7 +67,6 @@ h1 {
   opacity: 1;  /* 👈 ya no lleva position: relative */
 }
 
-/* Sección de saludos */
 #saludos {
   width: 100%;
   overflow: hidden;
@@ -77,12 +76,14 @@ h1 {
   z-index: 2;
 }
 
+/* Contenedor que se duplica */
 .marquee {
   display: flex;
-  align-items: center;          /* centra verticalmente las tarjetas */
+  align-items: center;
   gap: 20px;
-  animation: slide 120s linear infinite;
+  animation: slide 200s linear infinite; /* más lento */
   padding: 10px 0;
+  width: max-content; /* 👈 deja que el ancho se adapte al contenido */
 }
 
 .saludo-card {
@@ -101,27 +102,27 @@ h1 {
 
   flex-shrink: 0;
 
-  /* 👇 reglas para que no corte palabras */
-  white-space: normal;         /* permite saltos de línea normales */
-  word-break: keep-all;        /* no parte palabras */
-  overflow-wrap: break-word;   /* corta solo en espacios */
-  hyphens: none;               /* evita guiones automáticos */
+  /* 👇 no cortar palabras */
+  white-space: normal;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  hyphens: none;
 
   text-align: center;
-  overflow: visible;           /* deja crecer si el texto necesita */
 }
 
-/* hover */
 .saludo-card:hover {
   transform: scale(1.02);
   background-color: #06d6a0;
   color: #000;
 }
 
+/* Animación */
 @keyframes slide {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* 👈 mueve solo la mitad */
 }
+
 
 /* Música */
 #music-controls {
@@ -153,6 +154,7 @@ h1 {
   width: 150px;
   cursor: pointer;
 }
+
 
 
 
