@@ -1,3 +1,71 @@
+:root {
+  --bg1: #0a1a2f; /* azul oscuro */
+  --bg2: #13294b;
+}
+
+/* Reset + tipografía */
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(160deg, var(--bg1), var(--bg2));
+  transition: background 0.8s ease;
+  padding: 20px;
+}
+
+/* Título */
+h1 {
+  margin: 10px 0;
+  font-size: clamp(26px, 5vw, 42px);
+  font-weight: 700;
+  text-align: center;
+}
+
+#countdown {
+  font-weight: 700;
+  font-size: clamp(24px, 6vw, 48px);
+  margin-bottom: 20px;
+}
+
+
+
+#slideshow img {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  object-fit: contain;
+  background: #000;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+#slideshow img.active {
+  opacity: 1;
+  position: relative;
+}
+
+
+
+
+
+
+
+
 /* Ajustamos el slideshow para que no interfiera con otras secciones */
 #slideshow {
   width: 90%;
@@ -67,6 +135,7 @@
 #music-btn { /* ...igual que antes... */ }
 #music-btn:hover { /* ...igual que antes... */ }
 #volume-slider { /* ...igual que antes... */ }
+
 
 
 
