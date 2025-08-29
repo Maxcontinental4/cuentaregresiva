@@ -12,6 +12,16 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+ <!-- Reproductor -->
+  <div id="music-controls">
+    <button id="music-btn" onclick="toggleMusic()">🎶 Musicalizá la despedida</button>
+    <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="0.5">
+  </div>
+ <!-- Audio oculto -->
+  <audio id="bg-music" src="fin.mp3" loop></audio>
+
+
   <h1>Falta poco para que el chico de Gimenez abandone la casa de Gran Marcelo</h1>
   <div id="countdown">Cargando…</div>
 
@@ -45,15 +55,9 @@
     </div>
   </section>
 
-  <!-- Reproductor -->
-  <div id="music-controls">
-    <button id="music-btn" onclick="toggleMusic()">🎶 Musicalizá la despedida</button>
-    <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="0.5">
-  </div>
+ 
 
-  <!-- Audio oculto -->
-  <audio id="bg-music" src="fin.mp3" loop></audio>
-
+ 
   <!-- Scripts -->
   <script>
     // ---------- Cuenta regresiva ----------
