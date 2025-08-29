@@ -50,8 +50,8 @@
 }
 
 @keyframes slide {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
+  0% { transform: translateX(0%); } /* Comienza visible en el borde izquierdo */
+  100% { transform: translateX(-200%); } /* Se mueve el doble de su ancho total para pasar todas las tarjetas duplicadas */
 }
 
 /* Espacio extra antes del reproductor para que no cubra nada */
@@ -67,6 +67,7 @@
 #music-btn { /* ...igual que antes... */ }
 #music-btn:hover { /* ...igual que antes... */ }
 #volume-slider { /* ...igual que antes... */ }
+
 
 
 
