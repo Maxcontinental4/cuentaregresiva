@@ -94,24 +94,26 @@ h1 {
   border-radius: 12px;
   font-size: 18px;
   font-weight: 700;
-  line-height: 1.35;
+  line-height: 1.4;
   color: #fff;
   border: 3px solid #06d6a0;
   box-shadow: 0 4px 12px rgba(0,0,0,.4);
 
   flex-shrink: 0;
-  overflow: hidden;
 
-  /* 👇 Cambios claves */
-  white-space: normal;
-  word-break: normal;     /* 👈 fuerza corte en cualquier lugar */
-  overflow-wrap: break-word; /* 👈 soporte adicional */
+  /* 👇 reglas para que no corte palabras */
+  white-space: normal;         /* permite saltos de línea normales */
+  word-break: keep-all;        /* no parte palabras */
+  overflow-wrap: break-word;   /* corta solo en espacios */
+  hyphens: none;               /* evita guiones automáticos */
 
   text-align: center;
+  overflow: visible;           /* deja crecer si el texto necesita */
 }
-/* opcional: evitar que el hover haga “chocar” tarjetas */
+
+/* hover */
 .saludo-card:hover {
-  transform: scale(1.02);      /* antes 1.05 */
+  transform: scale(1.02);
   background-color: #06d6a0;
   color: #000;
 }
@@ -151,6 +153,7 @@ h1 {
   width: 150px;
   cursor: pointer;
 }
+
 
 
 
