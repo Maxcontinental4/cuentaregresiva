@@ -79,40 +79,47 @@ h1 {
 
 .marquee {
   display: flex;
+  align-items: center;          /* centra verticalmente las tarjetas */
   gap: 20px;
   animation: slide 60s linear infinite;
-  white-space: nowrap;
   padding: 10px 0;
 }
 
 .saludo-card {
+  /* tamaño fijo y caja completa (incluye padding/border) */
+  width: 220px;
+  max-width: 220px;
+  min-height: 110px;
+  max-height: 150px;
+  box-sizing: border-box;
+
+  /* estilado */
   background: #1f4068;
-  padding: 15px 20px;
+  padding: 14px 16px;
   border-radius: 12px;
   font-size: 18px;
-  font-weight: bold;
-  box-shadow: 0px 4px 12px rgba(0,0,0,0.4);
-
-  width: 220px;            /* ancho fijo */
-  max-width: 220px;        
-  min-height: 100px;       /* altura mínima más grande */
-  max-height: 140px;       /* altura máxima */
-  
-  white-space: normal;     
-  word-wrap: break-word;   
-  overflow-wrap: break-word;  
-  text-align: center;
-  line-height: 1.4;
+  font-weight: 700;
+  line-height: 1.35;
   color: #fff;
   border: 3px solid #06d6a0;
-  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,.4);
 
-  display: block;          /* 👈 antes era flex, ahora dejamos que fluya normal */
-  overflow: hidden;        /* oculta si aún queda algún exceso */
+  /* que NO se estire y que recorte adentro */
+  flex-shrink: 0;
+  overflow: hidden;
+
+  /* 👇 forzar quiebres dentro de palabras largas */
+  white-space: normal;
+  word-break: break-word;      /* soportado ampliamente */
+  overflow-wrap: anywhere;     /* extra por si el texto es una “palabra” larguísima */
+
+  /* centrado del texto */
+  text-align: center;
 }
 
+/* opcional: evitar que el hover haga “chocar” tarjetas */
 .saludo-card:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);      /* antes 1.05 */
   background-color: #06d6a0;
   color: #000;
 }
@@ -152,6 +159,7 @@ h1 {
   width: 150px;
   cursor: pointer;
 }
+
 
 
 
