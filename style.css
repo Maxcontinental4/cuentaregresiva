@@ -87,16 +87,19 @@ h1 {
 
 .saludo-card {
   background: #1f4068;
-  padding: 15px 25px;
+  padding: 15px 20px;
   border-radius: 12px;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
   box-shadow: 0px 4px 12px rgba(0,0,0,0.4);
-  min-width: 200px;
+  width: 220px;            /* ancho fijo */
+  max-width: 220px;        /* evita que se estiren */
+  white-space: normal;     /* permite salto de línea */
+  word-wrap: break-word;   /* corta palabras largas */
+  text-align: center;
   color: #fff;
   border: 3px solid #06d6a0;
   flex-shrink: 0;
-  text-align: center;
 }
 
 .saludo-card:hover {
@@ -140,6 +143,7 @@ h1 {
   width: 150px;
   cursor: pointer;
 }
+
 
 
 
