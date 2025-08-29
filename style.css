@@ -43,8 +43,8 @@ h1 {
 /* Slideshow */
 #slideshow {
   width: 90%;
-  max-width: 700px;
-  height: 400px;
+  max-width: 1200px;   /* antes 700px */
+  height: 800px;       /* antes 400px */
   margin: 20px auto;
   position: relative;
   overflow: hidden;
@@ -140,6 +140,7 @@ h1 {
   width: 150px;
   cursor: pointer;
 }
+
 
 
 
