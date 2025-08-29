@@ -104,8 +104,8 @@ h1 {
 
   /* 👇 Cambios claves */
   white-space: normal;
-  word-break: break-word;     /* 👈 fuerza corte en cualquier lugar */
-  overflow-wrap: center; /* 👈 soporte adicional */
+  word-break: normal;     /* 👈 fuerza corte en cualquier lugar */
+  overflow-wrap: break-word; /* 👈 soporte adicional */
 
   text-align: center;
 }
@@ -151,6 +151,7 @@ h1 {
   width: 150px;
   cursor: pointer;
 }
+
 
 
 
