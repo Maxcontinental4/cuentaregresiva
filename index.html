@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>YFalta poco para que el chico de Gimenez abandone la casa de Gran Marcelo</h1>
+  <h1>Falta poco para que el chico de Gimenez abandone la casa de Gran Marcelo</h1>
   <div id="countdown">Cargando…</div>
 
   <!-- Slideshow debajo del título -->
@@ -29,28 +29,29 @@
   </div>
 
   <!-- Tarjetas con saludos -->
-  <section id="saludos">
-    <div class="marquee">
-      <div class="saludo-card">👋 ¡Chau Adrián!</div>
-      <div class="saludo-card">🙌 ¡Nos vemos!</div>
-      <div class="saludo-card">😂 ¡Nos vemooooos!</div>
-      <div class="saludo-card">🤝 ¡Cuidate loco!</div>
-      <div class="saludo-card">🙏 ¡Muchas gracias!</div>
+ <section id="saludos">
+  <div class="marquee">
+    <!-- Tus tarjetas -->
+    <div class="saludo-card">👋 ¡Chau Adrián!</div>
+    <div class="saludo-card">🙌 ¡Nos vemos!</div>
+    <div class="saludo-card">😂 ¡Nos vemooooos!</div>
+    <div class="saludo-card">🤝 ¡Cuidate loco!</div>
+    <div class="saludo-card">🙏 ¡Muchas gracias!</div>
 
-      <!-- duplico para que la animación sea fluida -->
-      <div class="saludo-card">👋 ¡Chau Adrián!</div>
-      <div class="saludo-card">🙌 ¡Nos vemos!</div>
-      <div class="saludo-card">😂 ¡Nos vemooooos!</div>
-      <div class="saludo-card">🤝 ¡Cuidate loco!</div>
-      <div class="saludo-card">🙏 ¡Muchas gracias!</div>
-    </div>
-  </section>
-
-  <!-- Controles de música -->
-  <div id="music-controls">
-    <button id="music-btn" onclick="toggleMusic()">🎶 Musicalizá la despedida</button>
-    <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="0.5">
+    <!-- Duplicados para bucle fluido -->
+    <div class="saludo-card">👋 ¡Chau Adrián!</div>
+    <div class="saludo-card">🙌 ¡Nos vemos!</div>
+    <div class="saludo-card">😂 ¡Nos vemooooos!</div>
+    <div class="saludo-card">🤝 ¡Cuidate loco!</div>
+    <div class="saludo-card">🙏 ¡Muchas gracias!</div>
   </div>
+</section>
+
+<!-- Luego el reproductor, con suficiente margen top -->
+<div id="music-controls">
+  <button id="music-btn">🎶 Musicalizá la despedida</button>
+  <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="0.5">
+</div>
 
   <!-- Audio oculto -->
   <audio id="bg-music" src="musica.mp3" loop></audio>
