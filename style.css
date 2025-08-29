@@ -39,7 +39,15 @@ h1 {
   margin-bottom: 20px;
 }
 
-
+/* Slideshow */
+#slideshow {
+  width: 90%;
+  max-width: 700px;
+  height: 400px;
+  margin: 20px auto 20px auto;
+  overflow: hidden;
+  position: relative;
+}
 
 #slideshow img {
   width: 100%;
@@ -59,34 +67,17 @@ h1 {
   position: relative;
 }
 
-
-
-
-
-
-
-
-/* Ajustamos el slideshow para que no interfiera con otras secciones */
-#slideshow {
-  width: 90%;
-  max-width: 700px;
-  height: 400px;
-  margin: 20px auto 20px auto; /* margen inferior reducido */
-  overflow: hidden;
-  position: relative;
-}
-
-/* Sección de saludos con espacio abajo */
+/* Sección de saludos */
 #saludos {
   width: 100%;
   overflow: hidden;
   margin: 30px auto;
-  padding-bottom: 40px;  /* espacio para que no quede tapado */
+  padding-bottom: 40px;
   position: relative;
   z-index: 2;
 }
 
-/* Animación más fluida y lenta */
+/* Animación de la marquesina */
 .marquee {
   display: flex;
   gap: 20px;
@@ -95,7 +86,7 @@ h1 {
   padding: 10px 0;
 }
 
-/* Estilo de tarjetas con bordes visibles */
+/* Estilo de tarjetas */
 .saludo-card {
   background: #1f4068;
   padding: 15px 25px;
@@ -118,11 +109,11 @@ h1 {
 }
 
 @keyframes slide {
-  0% { transform: translateX(0%); } /* Comienza visible en el borde izquierdo */
-  100% { transform: translateX(-200%); } /* Se mueve el doble de su ancho total para pasar todas las tarjetas duplicadas */
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-200%); }
 }
 
-/* Espacio extra antes del reproductor para que no cubra nada */
+/* Controles de música */
 #music-controls {
   display: flex;
   align-items: center;
@@ -131,10 +122,27 @@ h1 {
   justify-content: center;
 }
 
-/* Slider y botones mantienen su estilo */
-#music-btn { /* ...igual que antes... */ }
-#music-btn:hover { /* ...igual que antes... */ }
-#volume-slider { /* ...igual que antes... */ }
+/* Slider y botones (estilos incompletos en el original) */
+#music-btn {
+  /* Añade aquí los estilos para el botón de música, si los tenías */
+  background: #06d6a0;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+#music-btn:hover {
+  background-color: #fff;
+}
+
+#volume-slider {
+  /* Añade aquí los estilos para el slider de volumen */
+  width: 100px;
+  cursor: pointer;
+}
+
 
 
 
